@@ -6,23 +6,12 @@
 	     <listener class-name="ultilities.TestListener"/>
 	</listeners>
 
-	  <test name="Test - Edge" thread-count="2" parallel="methods">
-	  	<parameter name="browser" value="edge" />
-	  	<parameter name="url" value="http://travel.agileway.net" />
-
-	    <classes>
-	      <class name="testcase.Login_Test"/>
-	      <class name="testcase.Payment_Test"/>
-	    </classes>
-	  </test>
-
     <test name="Test - Chrome" thread-count="2" parallel="methods">
 	  	<parameter name="browser" value="chrome" />
 		<parameter name="url" value="http://travel.agileway.net" />
 
 	    <classes>
 	      <class name="testcase.Login_Test"/>
-	      <class name="testcase.Payment_Test"/>
 	    </classes>
   	</test>
 
