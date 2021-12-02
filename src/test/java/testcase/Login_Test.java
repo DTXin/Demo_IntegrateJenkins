@@ -23,7 +23,7 @@ public class Login_Test extends AbstractTest {
 	@Test
 	public void TC02_Login_WrongPassword() {
 		login.doLogin("agileway", "badpass");
-		Assert.assertTrue(DriverFactory.getInstance().getDriver()
+		Assert.assertFalse(DriverFactory.getInstance().getDriver()
 				.findElement(flight.LABEL_USER_NAV).getText().contains("agileway"));
 	}
 
