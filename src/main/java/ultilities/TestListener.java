@@ -59,18 +59,21 @@ public class TestListener implements ITestListener {
 		}
 		ExtentFactory.getInstance().removeExtent();
 		
-		// Jira practice
-		jiraOps = new JiraManager();
-		String issueS = "Automation Test Failed - "+ result.getMethod().getMethodName();
-		String issueDescription = "Exception details: " + result.getThrowable().toString();
-		String key = "";
+		String modeJira = "OFF";
+		if(modeJira.equalsIgnoreCase("ON")) {
+			// Jira practice
+			jiraOps = new JiraManager();
+			String issueS = "Automation Test Failed - "+ result.getMethod().getMethodName();
+			String issueDescription = "Exception details: " + result.getThrowable().toString();
+			String key = "";
 
-		try {
-			key = jiraOps.createIssue(issueS, "10000", "Bug", issueDescription, "61a32637744c4d0069ea15b5", "61a32637744c4d0069ea15b5");
-			System.out.println(key);
-			jiraOps.addAttachmentToJiraIssue(key, screenshotPath);
-		} catch (Exception e) {
-			e.printStackTrace();
+			try {
+				key = jiraOps.createIssue(issueS, "10000", "Bug", issueDescription, "61a32637744c4d0069ea15b5", "61a32637744c4d0069ea15b5");
+				System.out.println(key);
+				jiraOps.addAttachmentToJiraIssue(key, screenshotPath);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 	}
 

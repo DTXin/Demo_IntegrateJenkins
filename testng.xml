@@ -6,7 +6,7 @@
 	     <listener class-name="ultilities.TestListener"/>
 	</listeners>
 
-    <test name="Test - Chrome" thread-count="2" parallel="methods">
+    <test name="Test - Chrome" parallel="methods">
 	  	<parameter name="browser" value="chrome" />
 		<parameter name="url" value="http://travel.agileway.net" />
 
