@@ -7,7 +7,7 @@
 	</listeners>
 
     <test name="Test - Chrome" parallel="methods">
-	  	<parameter name="browser" value="chrome" />
+	  	<parameter name="browser" value="edge" />
 		<parameter name="url" value="http://travel.agileway.net" />
 
 	    <classes>
