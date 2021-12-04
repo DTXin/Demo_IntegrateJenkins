@@ -19,7 +19,6 @@ public class TestListener implements ITestListener {
 
 	public static ExtentReports extentReport;
 	public static ExtentTest extentTest;
-	public static JiraManager jiraOps;
 	
 	@Override
 	public void onTestStart(ITestResult result) {
@@ -58,23 +57,6 @@ public class TestListener implements ITestListener {
 			e.printStackTrace();
 		}
 		ExtentFactory.getInstance().removeExtent();
-		
-		String modeJira = "OFF";
-		if(modeJira.equalsIgnoreCase("ON")) {
-			// Jira practice
-			jiraOps = new JiraManager();
-			String issueS = "Automation Test Failed - "+ result.getMethod().getMethodName();
-			String issueDescription = "Exception details: " + result.getThrowable().toString();
-			String key = "";
-
-			try {
-				key = jiraOps.createIssue(issueS, "10000", "Bug", issueDescription, "61a32637744c4d0069ea15b5", "61a32637744c4d0069ea15b5");
-				System.out.println(key);
-				jiraOps.addAttachmentToJiraIssue(key, screenshotPath);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
 	}
 
 	@Override
